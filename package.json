@@ -1,0 +1,80 @@
+{
+  "name": "mcp-testkit",
+  "version": "0.1.0",
+  "description": "Mock, contract-test and guard MCP (Model Context Protocol) tool servers in Vitest with zero hassle",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mock",
+    "vitest",
+    "contract-test",
+    "ai-agents",
+    "tool-calling",
+    "typescript",
+    "guard",
+    "testing"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Saurav Kumar",
+    "email": "sauravsk2507@gmail.com",
+    "url": "https://github.com/Ravandevil25"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ravandevil25/mcp-testkit.git"
+  },
+  "homepage": "https://github.com/Ravandevil25/mcp-testkit#readme",
+  "bugs": "https://github.com/Ravandevil25/mcp-testkit/issues",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "sideEffects": false,
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src test",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@arethetypeswrong/cli": "^0.18.0",
+    "@types/node": "^26.6.2",
+    "eslint": "^9.0.0",
+    "publint": "^0.3.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@modelcontextprotocol/sdk": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
