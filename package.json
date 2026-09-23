@@ -1,6 +1,6 @@
 {
   "name": "@sauravsk2507/mcp-testkit",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Mock, contract-test and guard MCP (Model Context Protocol) tool servers in Vitest with zero hassle",
   "keywords": [
     "mcp",
