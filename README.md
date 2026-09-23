@@ -11,11 +11,11 @@ The official MCP SDK ships transport but no testing story. `mcp-testkit` fills t
 ## Install in 15 seconds
 
 ```bash
-npm install mcp-testkit
+npm install @sauravsk2507/mcp-testkit
 ```
 
 ```ts
-import { contractTest, createMockServer, guard } from 'mcp-testkit';
+import { contractTest, createMockServer, guard } from '@sauravsk2507/mcp-testkit';
 
 const mock = createMockServer(
   {
