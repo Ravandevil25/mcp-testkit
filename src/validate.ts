@@ -59,11 +59,11 @@ function checkStringConstraints(
     failures.push({ path, message: `Longer than maxLength ${schema['maxLength']}.` });
   }
   if (typeof schema['pattern'] === 'string') {
-    let re: RegExp | null = null;
+    let re: RegExp | undefined;
     try {
       re = new RegExp(schema['pattern']);
     } catch {
-      re = null;
+      re = undefined;
     }
     if (re && !re.test(value)) {
       failures.push({ path, message: `Does not match pattern ${schema['pattern']}.` });
