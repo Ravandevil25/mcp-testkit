@@ -1,21 +1,21 @@
-# mcp-testkit
+# mcp-works
 
-Mock, contract-test and guard MCP (Model Context Protocol) tool servers in Vitest with zero hassle.
+Mock, contract-test, validate and guard MCP (Model Context Protocol) tool servers in Vitest with zero hassle.
 
-[![npm version](https://img.shields.io/npm/v/@sauravsk2507/mcp-testkit)](https://www.npmjs.com/package/@sauravsk2507/mcp-testkit)
-[![CI](https://github.com/Ravandevil25/mcp-testkit/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/Ravandevil25/mcp-testkit/actions)
-[![license](https://img.shields.io/npm/l/@sauravsk2507/mcp-testkit)](./LICENSE)
+[![npm version](https://img.shields.io/npm/v/mcp-works)](https://www.npmjs.com/package/mcp-works)
+[![CI](https://github.com/Ravandevil25/mcp-works/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/Ravandevil25/mcp-works/actions)
+[![license](https://img.shields.io/npm/l/mcp-works)](./LICENSE)
 
-The official MCP SDK ships transport but no testing story. `mcp-testkit` fills that gap with three small tools: an in-process mock server, a contract checker, and a safety guard.
+The official MCP SDK ships transport but no testing story. `mcp-works` fills that gap with four small tools: an in-process mock server, a contract checker, an arg validator, and a safety guard.
 
 ## Install in 15 seconds
 
 ```bash
-npm install @sauravsk2507/mcp-testkit
+npm install mcp-works
 ```
 
 ```ts
-import { contractTest, createMockServer, guard, validateArgs } from '@sauravsk2507/mcp-testkit';
+import { contractTest, createMockServer, guard, validateArgs } from 'mcp-works';
 
 const mock = createMockServer(
   {
@@ -40,7 +40,7 @@ console.log(res.content[0]?.text);
 
 ## Before / after
 
-| Hand-rolled | With mcp-testkit |
+| Hand-rolled | With mcp-works |
 |---|---|
 | Spin up a real server per test (slow, flaky) | `createMockServer` in-process, 2 lines |
 | Wrong input crashes the agent at runtime | `contractTest` catches missing description/schema upfront |
@@ -90,7 +90,7 @@ Pull the tool definitions out of your SDK `Server` and feed them to `contractTes
 Yes. Only the docs use Vitest. `createMockServer`, `contractTest`, `validateArgs` and `guard` are plain async functions with zero runtime deps.
 
 **How do I import from CommonJS?**
-`const { createMockServer } = require('@sauravsk2507/mcp-testkit');` — dual ESM+CJS, verified by `attw` and a CJS smoke test in CI.
+`const { createMockServer } = require('mcp-works');` — dual ESM+CJS, verified by `attw` and a CJS smoke test in CI.
 
 **How do I catch guard errors?**
 All guard errors are `McpTestkitError` with a `.code`: `TOOL_DENIED`, `TIMEOUT`, `OUTPUT_TOO_LARGE`. Switch on `code` for retries.

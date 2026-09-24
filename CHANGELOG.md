@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+- `rebrand`: package renamed to `mcp-works` (unscoped, clean name). Same API, zero breaking changes.
+- Migrating from `@sauravsk2507/mcp-works`: `npm install mcp-works` — imports change from `@sauravsk2507/mcp-works` to `mcp-works`.
+
 ## 0.2.0
 - `validateArgs(tool, args)`: zero-dep runtime arg validation — required, type, enum, nested objects with dotted paths
 - `examples/sdk-compat.mjs`: pattern for feeding real SDK tool definitions into contractTest/validateArgs
@@ -10,7 +14,7 @@
 ## 0.1.1
 - `ci`: audit gate now checks production deps only (dev-only findings non-blocking)
 - `ci`: publish workflow hardened for OIDC trusted publishing (npm latest, no cache)
-- `docs`: README install/import use scoped name `@sauravsk2507/mcp-testkit`
+- `docs`: README install/import use scoped name `mcp-works`
 
 ## 0.1.0
 - `createMockServer`: in-process mock with latency + abort support

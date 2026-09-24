@@ -8,7 +8,7 @@ about: Report a reproducible problem
 
 ## Repro
 ```ts
-// minimal snippet using @sauravsk2507/mcp-testkit
+// minimal snippet using mcp-works
 ```
 
 ## Expected
