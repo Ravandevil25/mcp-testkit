@@ -46,6 +46,44 @@ function checkType(value: unknown, expected: string, path: string): ArgFailure |
   }
 }
 
+function checkStringConstraints(
+  value: string,
+  schema: Record<string, unknown>,
+  path: string,
+  failures: ArgFailure[],
+): void {
+  if (typeof schema['minLength'] === 'number' && value.length < schema['minLength']) {
+    failures.push({ path, message: `Shorter than minLength ${schema['minLength']}.` });
+  }
+  if (typeof schema['maxLength'] === 'number' && value.length > schema['maxLength']) {
+    failures.push({ path, message: `Longer than maxLength ${schema['maxLength']}.` });
+  }
+  if (typeof schema['pattern'] === 'string') {
+    let re: RegExp | null = null;
+    try {
+      re = new RegExp(schema['pattern']);
+    } catch {
+      re = null;
+    }
+    if (re && !re.test(value)) {
+      failures.push({ path, message: `Does not match pattern ${schema['pattern']}.` });
+    }
+  }
+}
+
+function checkNumberConstraints(
+  value: number,
+  schema: Record<string, unknown>,
+  path: string,
+  failures: ArgFailure[],
+): void {
+  if (typeof schema['minimum'] === 'number' && value < schema['minimum']) {
+    failures.push({ path, message: `Below minimum ${schema['minimum']}.` });
+  }
+  if (typeof schema['maximum'] === 'number' && value > schema['maximum']) {
+    failures.push({ path, message: `Above maximum ${schema['maximum']}.` });
+  }
+}
 function checkEnum(
   value: unknown,
   allowed: unknown[],
@@ -88,11 +126,42 @@ export function validateArgs(
     const value = args[name];
     if (typeof propSchema['type'] === 'string') {
       const bad = checkType(value, propSchema['type'], name);
-      if (bad) failures.push(bad);
+      if (bad) {
+        failures.push(bad);
+        continue;
+      }
+      if (propSchema['type'] === 'string' && typeof value === 'string') {
+        checkStringConstraints(value, propSchema, name, failures);
+      }
+      if (
+        (propSchema['type'] === 'number' || propSchema['type'] === 'integer') &&
+        typeof value === 'number'
+      ) {
+        checkNumberConstraints(value, propSchema, name, failures);
+      }
     }
     if (Array.isArray(propSchema['enum'])) {
       const bad = checkEnum(value, propSchema['enum'] as unknown[], name);
       if (bad) failures.push(bad);
+    }
+    if (
+      propSchema['type'] === 'array' &&
+      Array.isArray(value) &&
+      isRecord(propSchema['items'])
+    ) {
+      const items = propSchema['items'] as Record<string, unknown>;
+      value.forEach((item, i) => {
+        if (typeof items['type'] === 'string') {
+          const bad = checkType(item, items['type'], `${name}[${i}]`);
+          if (bad) failures.push(bad);
+        }
+      });
+      if (typeof propSchema['minItems'] === 'number' && value.length < propSchema['minItems']) {
+        failures.push({ path: name, message: `Fewer than minItems ${propSchema['minItems']}.` });
+      }
+      if (typeof propSchema['maxItems'] === 'number' && value.length > propSchema['maxItems']) {
+        failures.push({ path: name, message: `More than maxItems ${propSchema['maxItems']}.` });
+      }
     }
     if (
       propSchema['type'] === 'object' &&

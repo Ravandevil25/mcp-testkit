@@ -7,6 +7,9 @@ export {
   type ContractFailure,
   type ContractReport,
   type GuardOptions,
+  type CallableServer,
+  McpWorksError,
+  /** @deprecated Use McpWorksError. */
   McpTestkitError,
 } from './types.js';
 export { createMockServer, type MockServer } from './mock.js';

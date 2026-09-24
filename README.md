@@ -55,7 +55,7 @@ In-process mock. `callTool` returns `{ content, isError }` — unknown tools and
 Returns `{ passed, failures[] }`. Checks: tools array shape, non-empty name/description, `inputSchema` object with `type: 'object'`, unique names.
 
 ### `validateArgs(tool, args)`
-Zero-dependency runtime check of args against the tool's `inputSchema`. Returns `{ valid, failures[] }` with dotted paths (`filter.tag`). Checks: `required`, `type` (string/number/integer/boolean/array/object), `enum`, and one level of nested objects.
+Zero-dependency runtime check of args against the tool's `inputSchema`. Returns `{ valid, failures[] }` with dotted paths (`filter.tag`, `tags[1]`). Checks: `required`, `type` (string/number/integer/boolean/array/object), `enum`, string constraints (`minLength`, `maxLength`, `pattern`), number constraints (`minimum`, `maximum`), arrays (`items` type, `minItems`, `maxItems`), and nested objects.
 
 ```ts
 const check = validateArgs(tool, { id: '42' });
@@ -63,7 +63,22 @@ if (!check.valid) console.log(check.failures);
 ```
 
 ### `guard(server, options?)`
-Wraps a server with `{ timeoutMs = 5000, allowTools?, maxBytes = 1MB }`. Denied tools throw `TOOL_DENIED`, slow tools throw `TIMEOUT`, oversized output throws `OUTPUT_TOO_LARGE`. All errors are `McpTestkitError` with a `.code`.
+Wraps any server with a `callTool` method (mocks, SDK adapters — not just `createMockServer` output).
+
+| Option | Default | Meaning |
+|---|---|---|
+| `timeoutMs` | `5000` | Abort slow calls; throws `TIMEOUT` |
+| `allowTools` | all | Deny-list everything else; throws `TOOL_DENIED` |
+| `maxBytes` | `1048576` (1MB) | Cap output size; throws `OUTPUT_TOO_LARGE` |
+| `redact` | off | `true` = redact emails, API keys, card-like numbers; `RegExp[]` = custom patterns (replaced with `[redacted]`) |
+
+All errors are `McpWorksError` with a `.code` (`TOOL_DENIED`, `TIMEOUT`, `OUTPUT_TOO_LARGE`, `ABORTED`, `INVALID_TOOL`). `McpTestkitError` remains as a deprecated alias.
+
+## Migrating from `@sauravsk2507/mcp-testkit`
+```bash
+npm uninstall @sauravsk2507/mcp-testkit && npm install mcp-works
+```
+Then replace the import specifier: `@sauravsk2507/mcp-testkit` → `mcp-works`. API is identical; optionally rename `McpTestkitError` → `McpWorksError`.
 
 ## Examples
 
@@ -75,8 +90,8 @@ node examples/sdk-compat.mjs
 
 ## Roadmap
 
-- v0.2: `npm create` scaffolder, PII-scan guard option
-- v0.3: OTel tracing, registry audit metadata
+- v0.3: PII-redact guard option, richer `validateArgs` (arrays, string/number constraints), `McpWorksError` branding
+- v0.4: `npm create` scaffolder, OTel tracing, registry audit metadata
 
 ## FAQ
 

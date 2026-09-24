@@ -1,6 +1,12 @@
 # Changelog
 
-## 0.2.1
+## 0.3.0
+- `validateArgs`: string constraints (minLength/maxLength/pattern), number constraints (minimum/maximum), arrays (items/minItems/maxItems)
+- `guard`: accepts any `{ callTool }` server (SDK adapters wrappable); `redact` option (default PII patterns or custom RegExp[])
+- `errors`: new `McpWorksError`; `McpTestkitError` kept as deprecated alias
+- `fix`: TextEncoder byte length (edge/bundler safe); circular-safe handler stringify
+- `quality`: eslint flat config, v8 coverage 98% with thresholds, typechecked tests, lint+coverage in CI
+- `docs`: options tables, migration guide, FAQ/Troubleshooting, SDK-compat + validate-guard examples
 - `rebrand`: package renamed to `mcp-works` (unscoped, clean name). Same API, zero breaking changes.
 - Migrating from `@sauravsk2507/mcp-works`: `npm install mcp-works` — imports change from `@sauravsk2507/mcp-works` to `mcp-works`.
 

@@ -1,5 +1,6 @@
 import {
-  McpTestkitError,
+  McpWorksError,
+  type CallableServer,
   type CallResult,
   type MockOptions,
   type ServerDefinition,
@@ -7,19 +8,18 @@ import {
   type ToolHandler,
 } from './types.js';
 
-export interface MockServer {
+export interface MockServer extends CallableServer {
   readonly definition: ServerDefinition;
   listTools(): ToolDefinition[];
-  callTool(
-    name: string,
-    args?: Record<string, unknown>,
-    signal?: AbortSignal,
-  ): Promise<CallResult>;
 }
 
 function toText(value: unknown): string {
   if (typeof value === 'string') return value;
-  return JSON.stringify(value);
+  try {
+    return JSON.stringify(value);
+  } catch {
+    return String(value);
+  }
 }
 
 export function createMockServer(
@@ -32,7 +32,7 @@ export function createMockServer(
 
   for (const tool of tools) {
     if (typeof tool.name !== 'string' || tool.name.length === 0) {
-      throw new McpTestkitError(
+      throw new McpWorksError(
         'INVALID_TOOL',
         'Every tool needs a non-empty name.',
       );
@@ -59,7 +59,7 @@ export function createMockServer(
       };
     }
     if (signal?.aborted) {
-      throw new McpTestkitError('ABORTED', `Call to ${name} was aborted.`);
+      throw new McpWorksError('ABORTED', `Call to ${name} was aborted.`);
     }
     if (latencyMs > 0) {
       await new Promise<void>((resolve, reject) => {
@@ -69,7 +69,7 @@ export function createMockServer(
         }, latencyMs);
         const onAbort = () => {
           clearTimeout(timer);
-          reject(new McpTestkitError('ABORTED', `Call to ${name} was aborted.`));
+          reject(new McpWorksError('ABORTED', `Call to ${name} was aborted.`));
         };
         signal?.addEventListener('abort', onAbort, { once: true });
       });

@@ -37,13 +37,26 @@ export interface GuardOptions {
   timeoutMs?: number;
   allowTools?: string[];
   maxBytes?: number;
+  redact?: boolean | RegExp[];
 }
 
-export class McpTestkitError extends Error {
+export interface CallableServer {
+  callTool(
+    name: string,
+    args?: Record<string, unknown>,
+    signal?: AbortSignal,
+  ): Promise<CallResult>;
+}
+
+export class McpWorksError extends Error {
   readonly code: string;
   constructor(code: string, message: string) {
     super(message);
-    this.name = 'McpTestkitError';
+    this.name = 'McpWorksError';
     this.code = code;
   }
 }
+
+/** @deprecated Use McpWorksError. Alias kept for backward compatibility. */
+export const McpTestkitError = McpWorksError;
+export type McpTestkitError = McpWorksError;

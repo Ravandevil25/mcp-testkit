@@ -20,8 +20,9 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: npm
       - run: npm ci
-      - run: npx tsc --noEmit
-      - run: npx vitest run
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run test:coverage
       - run: npm run build
       - run: npx attw --pack .
       - run: npx publint

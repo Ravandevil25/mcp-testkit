@@ -1,6 +1,6 @@
 {
   "name": "mcp-works",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Mock, contract-test and guard MCP (Model Context Protocol) tool servers in Vitest with zero hassle",
   "keywords": [
     "mcp",
@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Ravandevil25/mcp-works.git"
+    "url": "git+https://github.com/Ravandevil25/mcp-works.git"
   },
   "homepage": "https://github.com/Ravandevil25/mcp-works#readme",
   "bugs": "https://github.com/Ravandevil25/mcp-works/issues",
@@ -52,18 +52,21 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json",
     "lint": "eslint src test",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.0",
     "@types/node": "^26.6.2",
+    "@vitest/coverage-v8": "^2.1.9",
     "eslint": "^9.0.0",
     "publint": "^0.3.0",
     "tsup": "^8.0.0",
     "typescript": "^5.6.0",
+    "typescript-eslint": "^8.70.1",
     "vitest": "^2.0.0"
   },
   "peerDependencies": {

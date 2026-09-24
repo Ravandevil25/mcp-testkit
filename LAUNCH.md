@@ -1,35 +1,38 @@
-# Launch assets — mcp-works 0.1.1
+# Launch assets — mcp-works 0.3.0
 
 ## 1. r/node showcase post
 
-Title: `Show: mcp-works — mock + contract-test + guard for MCP servers in Vitest`
+Title: `Show: mcp-works — mock + contract-test + validate + guard for MCP servers`
 
 Body:
-> I kept hand-rolling the same three things for every MCP server: an
+> I kept hand-rolling the same four things for every MCP server: an
 > in-process mock so tests don't need a live server, a contract check
-> (description? schema? unique names?), and a guard so agents can't call
-> the wrong tool or hang forever.
+> (description? schema? unique names?), arg validation (required? types?
+> constraints?), and a guard so agents can't call the wrong tool, hang
+> forever, or leak PII.
 >
 > So I packaged it: `mcp-works`
 >
 > ```ts
-> import { contractTest, createMockServer, guard } from 'mcp-works';
+> import { contractTest, createMockServer, guard, validateArgs } from 'mcp-works';
 > const mock = createMockServer({ tools }, handlers);
 > await contractTest(mock.definition); // { passed, failures[] }
-> const safe = guard(mock, { timeoutMs: 5000, allowTools: ['get_time'] });
+> validateArgs(tool, args); // { valid, failures[] } — zero-dep
+> const safe = guard(mock, { timeoutMs: 5000, allowTools: ['get_time'], redact: true });
 > ```
 >
-> - dual ESM+CJS, strict TS, 15 tests green, attw clean, provenance-signed
+> Honest scope: definition-level testing layer, companion to the official
+> SDK (transport stays with the SDK). Zero runtime deps, dual ESM+CJS,
+> strict TS, 35 tests green, attw clean, provenance-signed.
 > - repo: https://github.com/Ravandevil25/mcp-works
-> - Feedback wanted: what guard rule do you need next — PII-scan, rate-limit, or OTel?
 
 ## 2. X thread (5 posts)
 
-1. Every MCP server I test needs the same 3 things: a mock, a contract check, and a guard. I got tired of rewriting them.
-2. So I shipped `mcp-works`: `createMockServer` for Vitest (2 lines, no live server), `contractTest` (catches missing schema/description), `guard` (allowlist + timeout + output cap).
-3. Before: spin up a real server per test, agent crashes on bad input, wrong tool runs free. After: 3 calls, typed errors with codes (TOOL_DENIED / TIMEOUT / OUTPUT_TOO_LARGE).
-4. `npm i mcp-works` — ESM+CJS, strict TS, 15/15 tests, provenance-signed, CI green on Node 20/22 x ubuntu/windows.
-5. Repo + examples: https://github.com/Ravandevil25/mcp-works — what guard rule should I add next?
+1. Every MCP server I test needs the same 4 things: a mock, a contract check, arg validation, and a guard. I got tired of rewriting them.
+2. So I shipped `mcp-works`: `createMockServer` (2 lines, no live server), `contractTest` (missing schema/description), `validateArgs` (required/types/enum/constraints, zero-dep), `guard` (allowlist + timeout + output cap + PII redact).
+3. Before: spin up a real server per test, agent crashes on bad input, wrong tool runs free. After: 4 calls, typed errors with codes (TOOL_DENIED / TIMEOUT / OUTPUT_TOO_LARGE).
+4. `npm i mcp-works` — zero runtime deps, ESM+CJS, strict TS, 35/35 tests, 98% coverage, provenance-signed, CI green on Node 20/22 x ubuntu/windows.
+5. Repo + examples: https://github.com/Ravandevil25/mcp-works — honest scope: definition-level testing layer, SDK companion.
 
 ## 3. dev.to tutorial outline
 

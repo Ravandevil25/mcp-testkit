@@ -66,4 +66,27 @@ describe('createMockServer', () => {
       ),
     ).toThrow(McpTestkitError);
   });
+
+  it('handles missing handler', async () => {
+    const mock = createMockServer(def, {});
+    const res = await mock.callTool('get_time', {});
+    expect(res.isError).toBe(true);
+  });
+
+  it('aborts during latency wait', async () => {
+    const mock = createMockServer(def, { get_time: () => 'noon' }, { latencyMs: 200 });
+    const controller = new AbortController();
+    const p = mock.callTool('get_time', {}, controller.signal);
+    controller.abort();
+    await expect(p).rejects.toBeInstanceOf(McpTestkitError);
+  });
+
+  it('stringifies circular objects safely', async () => {
+    const circular: Record<string, unknown> = {};
+    circular.self = circular;
+    const mock = createMockServer(def, { get_time: () => circular });
+    const res = await mock.callTool('get_time', {});
+    expect(res.isError).toBeUndefined();
+    expect(typeof res.content[0]?.text).toBe('string');
+  });
 });

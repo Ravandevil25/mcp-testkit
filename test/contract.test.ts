@@ -39,4 +39,18 @@ describe('contractTest', () => {
     const report = await contractTest({ tools: 'nope' } as never);
     expect(report.passed).toBe(false);
   });
+
+  it('fails non-object tool entries and bad schema type', async () => {
+    const report = await contractTest({
+      tools: [
+        'nope' as never,
+        { name: 'ok-but-wrong-schema', description: 'd', inputSchema: { type: 'array' } },
+        { name: '', description: '', inputSchema: 'bad' } as never,
+      ],
+    });
+    expect(report.passed).toBe(false);
+    expect(report.failures.some((f) => f.check === 'shape')).toBe(true);
+    expect(report.failures.some((f) => f.check === 'inputSchema')).toBe(true);
+    expect(report.failures.some((f) => f.check === 'name')).toBe(true);
+  });
 });

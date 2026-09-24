@@ -58,4 +58,37 @@ describe('guard', () => {
       code: 'OUTPUT_TOO_LARGE',
     });
   });
+
+  it('wraps any callable server (not just mocks)', async () => {
+    const custom = {
+      callTool: async () => ({ content: [{ type: 'text' as const, text: 'hi' }] }),
+    };
+    const safe = guard(custom, { timeoutMs: 1000 });
+    const res = await safe.callTool('anything', {});
+    expect(res.content[0]?.text).toBe('hi');
+  });
+
+  it('redacts PII with default patterns', async () => {
+    const safe = guard(
+      server({ get_time: () => 'mail me at bob@example.com please', danger: () => 'x' }),
+      { redact: true },
+    );
+    const res = await safe.callTool('get_time', {});
+    expect(res.content[0]?.text).toBe('mail me at [redacted] please');
+  });
+
+  it('redacts with custom patterns', async () => {
+    const safe = guard(
+      server({ get_time: () => 'order SECRET-1 done', danger: () => 'x' }),
+      { redact: [/SECRET-\d+/g] },
+    );
+    const res = await safe.callTool('get_time', {});
+    expect(res.content[0]?.text).toBe('order [redacted] done');
+  });
+
+  it('McpWorksError is the new name, alias still works', async () => {
+    const { McpWorksError, McpTestkitError } = await import('../src/index.js');
+    expect(new McpWorksError('X', 'y')).toBeInstanceOf(Error);
+    expect(McpTestkitError).toBe(McpWorksError);
+  });
 });
