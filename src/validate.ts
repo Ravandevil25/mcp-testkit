@@ -95,6 +95,21 @@ function checkEnum(
   return null;
 }
 
+/**
+ * Validate args against a tool's `inputSchema` at runtime. Zero dependencies.
+ * Checks `required`, `type`, `enum`, string/number constraints, arrays, and
+ * nested objects (dotted paths like `filter.tag`, `tags[1]`).
+ *
+ * @param tool - Tool definition carrying `inputSchema`.
+ * @param args - Args to validate (must be an object).
+ * @returns `{ valid, failures[] }` — each failure has `path` and `message`.
+ *
+ * @example
+ * ```ts
+ * const check = validateArgs(tool, { id: '42' });
+ * if (!check.valid) console.log(check.failures);
+ * ```
+ */
 export function validateArgs(
   tool: ToolDefinition,
   args: unknown,

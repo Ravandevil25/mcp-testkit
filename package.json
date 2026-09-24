@@ -56,6 +56,10 @@
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json",
     "lint": "eslint src test",
+    "docs:api": "typedoc",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "npm run docs:api && vitepress build docs",
+    "docs:preview": "vitepress preview docs",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
@@ -65,8 +69,11 @@
     "eslint": "^9.0.0",
     "publint": "^0.3.0",
     "tsup": "^8.0.0",
+    "typedoc": "^0.28.20",
+    "typedoc-plugin-markdown": "^4.13.1",
     "typescript": "^5.6.0",
     "typescript-eslint": "^8.70.1",
+    "vitepress": "^1.6.4",
     "vitest": "^2.0.0"
   },
   "peerDependencies": {

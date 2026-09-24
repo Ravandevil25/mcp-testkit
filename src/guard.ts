@@ -48,6 +48,22 @@ function byteLength(text: string): number {
   return encoder.encode(text).length;
 }
 
+/**
+ * Wrap any `{ callTool }` server with safety rails: tool allowlist, timeout,
+ * output-size cap, and optional PII redaction.
+ *
+ * @param server - Any server exposing `callTool` (mocks, SDK adapters).
+ * @param options - `timeoutMs` (default 5000), `allowTools`, `maxBytes`
+ * (default 1MB), `redact` (`true` for default PII patterns or custom `RegExp[]`).
+ * @returns Guarded server with the same `callTool` shape.
+ * @throws {@link McpWorksError} `TOOL_DENIED` for blocked tools,
+ * `TIMEOUT` for slow calls, `OUTPUT_TOO_LARGE` for oversized output.
+ *
+ * @example
+ * ```ts
+ * const safe = guard(server, { timeoutMs: 3000, allowTools: ['read_note'], redact: true });
+ * ```
+ */
 export function guard(server: CallableServer, options?: GuardOptions): GuardedServer {
   const timeoutMs = options?.timeoutMs ?? 5000;
   const allowTools = options?.allowTools;

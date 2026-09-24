@@ -8,6 +8,20 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === 'object' && value !== null && !Array.isArray(value);
 }
 
+/**
+ * Check a server definition for contract errors without running anything.
+ * Verifies tools-array shape, non-empty unique names, non-empty
+ * descriptions, and object `inputSchema` per tool.
+ *
+ * @param def - Server definition to check.
+ * @returns `{ passed, failures[] }` — each failure has `tool`, `check`, `message`.
+ *
+ * @example
+ * ```ts
+ * const report = await contractTest(mock.definition);
+ * if (!report.passed) console.log(report.failures);
+ * ```
+ */
 export async function contractTest(
   def: ServerDefinition,
 ): Promise<ContractReport> {

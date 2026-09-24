@@ -22,6 +22,21 @@ function toText(value: unknown): string {
   }
 }
 
+/**
+ * Create an in-process mock MCP server for tests. No live server needed.
+ *
+ * @param def - Server definition with tool list.
+ * @param handlers - Handler per tool name; thrown errors become `isError` results.
+ * @param options - Optional latency simulation (`latencyMs`).
+ * @returns Mock server with `listTools` and `callTool`.
+ * @throws {@link McpWorksError} with code `INVALID_TOOL` if a tool name is empty.
+ *
+ * @example
+ * ```ts
+ * const mock = createMockServer({ tools }, { get_time: () => 'noon' });
+ * const res = await mock.callTool('get_time', {});
+ * ```
+ */
 export function createMockServer(
   def: ServerDefinition,
   handlers: Record<string, ToolHandler>,
