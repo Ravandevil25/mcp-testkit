@@ -1,6 +1,6 @@
 {
-  "name": "mcp-works",
-  "version": "0.3.0",
+  "name": "@sauravsk2507/mcp-testkit",
+  "version": "0.2.0",
   "description": "Mock, contract-test and guard MCP (Model Context Protocol) tool servers in Vitest with zero hassle",
   "keywords": [
     "mcp",
@@ -22,10 +22,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ravandevil25/mcp-works.git"
+    "url": "https://github.com/Ravandevil25/mcp-testkit.git"
   },
-  "homepage": "https://github.com/Ravandevil25/mcp-works#readme",
-  "bugs": "https://github.com/Ravandevil25/mcp-works/issues",
+  "homepage": "https://github.com/Ravandevil25/mcp-testkit#readme",
+  "bugs": "https://github.com/Ravandevil25/mcp-testkit/issues",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -52,30 +52,19 @@
   "scripts": {
     "build": "tsup",
     "test": "vitest run",
-    "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json",
+    "typecheck": "tsc --noEmit",
     "lint": "eslint src test",
-    "docs:api": "typedoc",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "npm run docs:api && vitepress build docs",
-    "docs:preview": "vitepress preview docs",
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.0",
-    "@eslint/js": "^10.0.1",
     "@types/node": "^26.6.2",
-    "@vitest/coverage-v8": "^5.0.1",
-    "eslint": "^10.11.0",
+    "eslint": "^9.0.0",
     "publint": "^0.3.0",
     "tsup": "^8.0.0",
-    "typedoc": "^0.28.20",
-    "typedoc-plugin-markdown": "^4.13.1",
-    "typescript": "^5.6.0",
-    "typescript-eslint": "^8.70.1",
-    "vitepress": "^1.6.4",
-    "vitest": "^5.0.1"
+    "typescript": "^7.0.2",
+    "vitest": "^2.0.0"
   },
   "peerDependencies": {
     "@modelcontextprotocol/sdk": "^1.0.0"
