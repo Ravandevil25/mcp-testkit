@@ -64,9 +64,10 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.18.0",
+    "@eslint/js": "^10.0.1",
     "@types/node": "^26.6.2",
     "@vitest/coverage-v8": "^5.0.1",
-    "eslint": "^9.0.0",
+    "eslint": "^10.11.0",
     "publint": "^0.3.0",
     "tsup": "^8.0.0",
     "typedoc": "^0.28.20",
