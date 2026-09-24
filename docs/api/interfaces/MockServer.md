@@ -6,7 +6,7 @@
 
 # Interface: MockServer
 
-Defined in: [src/mock.ts:11](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/mock.ts#L11)
+Defined in: [src/mock.ts:11](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/mock.ts#L11)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [src/mock.ts:11](https://github.com/Ravandevil25/mcp-works/blob/6ad3
 
 > `readonly` **definition**: [`ServerDefinition`](ServerDefinition.md)
 
-Defined in: [src/mock.ts:12](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/mock.ts#L12)
+Defined in: [src/mock.ts:12](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/mock.ts#L12)
 
 ## Methods
 
@@ -26,7 +26,7 @@ Defined in: [src/mock.ts:12](https://github.com/Ravandevil25/mcp-works/blob/6ad3
 
 > **callTool**(`name`, `args?`, `signal?`): `Promise`\<[`CallResult`](CallResult.md)\>
 
-Defined in: [src/types.ts:44](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/types.ts#L44)
+Defined in: [src/types.ts:44](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/types.ts#L44)
 
 #### Parameters
 
@@ -56,7 +56,7 @@ Defined in: [src/types.ts:44](https://github.com/Ravandevil25/mcp-works/blob/6ad
 
 > **listTools**(): [`ToolDefinition`](ToolDefinition.md)[]
 
-Defined in: [src/mock.ts:13](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/mock.ts#L13)
+Defined in: [src/mock.ts:13](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/mock.ts#L13)
 
 #### Returns
 

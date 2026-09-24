@@ -1,6 +1,6 @@
 {
   "name": "mcp-works",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Mock, contract-test and guard MCP (Model Context Protocol) tool servers in Vitest with zero hassle",
   "keywords": [
     "mcp",

@@ -6,7 +6,7 @@
 
 # Interface: ArgReport
 
-Defined in: [src/validate.ts:8](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/validate.ts#L8)
+Defined in: [src/validate.ts:8](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/validate.ts#L8)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/validate.ts:8](https://github.com/Ravandevil25/mcp-works/blob/6
 
 > **failures**: [`ArgFailure`](ArgFailure.md)[]
 
-Defined in: [src/validate.ts:10](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/validate.ts#L10)
+Defined in: [src/validate.ts:10](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/validate.ts#L10)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [src/validate.ts:10](https://github.com/Ravandevil25/mcp-works/blob/
 
 > **valid**: `boolean`
 
-Defined in: [src/validate.ts:9](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/validate.ts#L9)
+Defined in: [src/validate.ts:9](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/validate.ts#L9)

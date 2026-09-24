@@ -6,7 +6,7 @@
 
 # Interface: MockOptions
 
-Defined in: [src/types.ts:21](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/types.ts#L21)
+Defined in: [src/types.ts:21](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/types.ts#L21)
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: [src/types.ts:21](https://github.com/Ravandevil25/mcp-works/blob/6ad
 
 > `optional` **latencyMs?**: `number`
 
-Defined in: [src/types.ts:22](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/types.ts#L22)
+Defined in: [src/types.ts:22](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/types.ts#L22)

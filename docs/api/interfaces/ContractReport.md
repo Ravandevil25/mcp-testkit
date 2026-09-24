@@ -6,7 +6,7 @@
 
 # Interface: ContractReport
 
-Defined in: [src/types.ts:31](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/types.ts#L31)
+Defined in: [src/types.ts:31](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/types.ts#L31)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/types.ts:31](https://github.com/Ravandevil25/mcp-works/blob/6ad
 
 > **failures**: [`ContractFailure`](ContractFailure.md)[]
 
-Defined in: [src/types.ts:33](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/types.ts#L33)
+Defined in: [src/types.ts:33](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/types.ts#L33)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [src/types.ts:33](https://github.com/Ravandevil25/mcp-works/blob/6ad
 
 > **passed**: `boolean`
 
-Defined in: [src/types.ts:32](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/types.ts#L32)
+Defined in: [src/types.ts:32](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/types.ts#L32)

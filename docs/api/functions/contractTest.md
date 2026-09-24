@@ -8,7 +8,7 @@
 
 > **contractTest**(`def`): `Promise`\<[`ContractReport`](../interfaces/ContractReport.md)\>
 
-Defined in: [src/contract.ts:25](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/contract.ts#L25)
+Defined in: [src/contract.ts:25](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/contract.ts#L25)
 
 Check a server definition for contract errors without running anything.
 Verifies tools-array shape, non-empty unique names, non-empty

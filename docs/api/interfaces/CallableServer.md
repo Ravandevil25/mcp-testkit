@@ -6,7 +6,7 @@
 
 # Interface: CallableServer
 
-Defined in: [src/types.ts:43](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/types.ts#L43)
+Defined in: [src/types.ts:43](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/types.ts#L43)
 
 ## Extended by
 
@@ -18,7 +18,7 @@ Defined in: [src/types.ts:43](https://github.com/Ravandevil25/mcp-works/blob/6ad
 
 > **callTool**(`name`, `args?`, `signal?`): `Promise`\<[`CallResult`](CallResult.md)\>
 
-Defined in: [src/types.ts:44](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/types.ts#L44)
+Defined in: [src/types.ts:44](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/types.ts#L44)
 
 #### Parameters
 

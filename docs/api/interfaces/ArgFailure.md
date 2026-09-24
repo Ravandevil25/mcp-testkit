@@ -6,7 +6,7 @@
 
 # Interface: ArgFailure
 
-Defined in: [src/validate.ts:3](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/validate.ts#L3)
+Defined in: [src/validate.ts:3](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/validate.ts#L3)
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: [src/validate.ts:3](https://github.com/Ravandevil25/mcp-works/blob/6
 
 > **message**: `string`
 
-Defined in: [src/validate.ts:5](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/validate.ts#L5)
+Defined in: [src/validate.ts:5](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/validate.ts#L5)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [src/validate.ts:5](https://github.com/Ravandevil25/mcp-works/blob/6
 
 > **path**: `string`
 
-Defined in: [src/validate.ts:4](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/validate.ts#L4)
+Defined in: [src/validate.ts:4](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/validate.ts#L4)

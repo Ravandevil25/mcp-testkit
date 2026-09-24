@@ -6,7 +6,7 @@
 
 # Class: McpWorksError
 
-Defined in: [src/types.ts:51](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/types.ts#L51)
+Defined in: [src/types.ts:51](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/types.ts#L51)
 
 ## Extends
 
@@ -18,7 +18,7 @@ Defined in: [src/types.ts:51](https://github.com/Ravandevil25/mcp-works/blob/6ad
 
 > **new McpWorksError**(`code`, `message`): `McpWorksError`
 
-Defined in: [src/types.ts:53](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/types.ts#L53)
+Defined in: [src/types.ts:53](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/types.ts#L53)
 
 #### Parameters
 
@@ -56,7 +56,7 @@ Defined in: node\_modules/typescript/lib/lib.es2022.error.d.ts:26
 
 > `readonly` **code**: `string`
 
-Defined in: [src/types.ts:52](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/types.ts#L52)
+Defined in: [src/types.ts:52](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/types.ts#L52)
 
 ***
 

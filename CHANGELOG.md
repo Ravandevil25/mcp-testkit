@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+- `deps`: vitest 2 → 5 (+ @vitest/coverage-v8 5), eslint 9 → 10 (+ @eslint/js), actions/checkout + setup-node v4 → v7
+- `docs`: VitePress site live (guides, API ref, migration, FAQ), TypeDoc TSDoc coverage on all public exports, SUPPORT.md with SLA
+- `chore`: generated output gitignored (coverage, vitepress dist/cache); TypeScript 7 deferred until typedoc supports it
+- No API changes — drop-in upgrade from 0.3.x.
+
 ## 0.3.0
 - `validateArgs`: string constraints (minLength/maxLength/pattern), number constraints (minimum/maximum), arrays (items/minItems/maxItems)
 - `guard`: accepts any `{ callTool }` server (SDK adapters wrappable); `redact` option (default PII patterns or custom RegExp[])

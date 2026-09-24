@@ -6,7 +6,7 @@
 
 # Interface: GuardedServer
 
-Defined in: [src/guard.ts:8](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/guard.ts#L8)
+Defined in: [src/guard.ts:8](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/guard.ts#L8)
 
 ## Methods
 
@@ -14,7 +14,7 @@ Defined in: [src/guard.ts:8](https://github.com/Ravandevil25/mcp-works/blob/6ad3
 
 > **callTool**(`name`, `args?`, `signal?`): `Promise`\<[`CallResult`](CallResult.md)\>
 
-Defined in: [src/guard.ts:9](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/guard.ts#L9)
+Defined in: [src/guard.ts:9](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/guard.ts#L9)
 
 #### Parameters
 

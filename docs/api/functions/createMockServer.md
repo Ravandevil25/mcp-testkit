@@ -8,7 +8,7 @@
 
 > **createMockServer**(`def`, `handlers`, `options?`): [`MockServer`](../interfaces/MockServer.md)
 
-Defined in: [src/mock.ts:40](https://github.com/Ravandevil25/mcp-works/blob/6ad34f97ce33eb04f1f7179eccc7ba8994d2d3d6/src/mock.ts#L40)
+Defined in: [src/mock.ts:40](https://github.com/Ravandevil25/mcp-works/blob/995f170a537e87f84d640086caf06c46fb45f7f0/src/mock.ts#L40)
 
 Create an in-process mock MCP server for tests. No live server needed.
 
