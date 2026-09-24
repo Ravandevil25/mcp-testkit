@@ -11,4 +11,5 @@ export {
 } from './types.js';
 export { createMockServer, type MockServer } from './mock.js';
 export { contractTest } from './contract.js';
+export { validateArgs, type ArgFailure, type ArgReport } from './validate.js';
 export { guard, type GuardedServer } from './guard.js';

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.2.0
+- `validateArgs(tool, args)`: zero-dep runtime arg validation — required, type, enum, nested objects with dotted paths
+- `examples/sdk-compat.mjs`: pattern for feeding real SDK tool definitions into contractTest/validateArgs
+- `docs`: scoped badges, FAQ, Troubleshooting table
+- `repo`: CONTRIBUTING, Code of Conduct, issue templates, Dependabot, topics, branch protection
+- `ci`: CJS smoke test + SDK-compat example run in matrix
+
 ## 0.1.1
 - `ci`: audit gate now checks production deps only (dev-only findings non-blocking)
 - `ci`: publish workflow hardened for OIDC trusted publishing (npm latest, no cache)
