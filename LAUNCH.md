@@ -41,3 +41,24 @@ Title: `Testing MCP servers in 10 minutes (mock + contract + guard)`
 4. Step 3: `guard` — block a dangerous tool, timeout a slow one, cap output.
 5. CI + provenance: why signed publishes matter for agent tooling.
 6. Link repo + npm + roadmap (PII-scan, scaffolder), ask for guard-rule votes.
+
+## 4. Downstream outreach (5 high-intent targets)
+
+1. `modelcontextprotocol/servers` Discussions (90.6k stars, README says reference servers are "not production-ready")
+   Angle: offer mcp-testkit as the community testing layer for reference impls.
+   Message: "I built @sauravsk2507/mcp-testkit — mock + contract-test + guard for MCP servers (Vitest, 3 calls). Happy to PR a contract test for one reference server (e.g. time/filesystem) to show the pattern. Interested?"
+
+2. `modelcontextprotocol/typescript-sdk` repo
+   Angle: SDK is transport-only; testkit is the companion layer, zero overlap.
+   Message: "Would you accept a docs/example PR showing contractTest + guard against the SDK client? Package: @sauravsk2507/mcp-testkit, ESM+CJS, provenance-signed."
+
+3. `mcp-framework` (npm, 217k/mo, single maintainer, no scaffolder tests)
+   Angle: add generated contract test to their server template.
+   Message: "Your template + my contractTest = every scaffolded server ships tested. Want a PR adding it to the generator?"
+
+4. Awesome-MCP lists (ADDITIONAL.md-linked collections, awesome MCP server lists)
+   Angle: no Testing section exists anywhere — be the first entry.
+   Message: PR titled "Add Testing section: mcp-testkit (mock + contract + guard)".
+
+5. r/node showcase + X thread + Nodeiflux #showcase (assets in sections 1-2 above)
+   Angle: highest-intent devs, post Tue-Thu AM US with the 5-line demo, ask "what guard rule next?" to harvest v0.2 features.
